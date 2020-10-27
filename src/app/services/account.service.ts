@@ -23,6 +23,9 @@ export class AccountService {
     return this.http.patch(this.url + 'accounts/' + id, account);
   }
   //delete account
+  deleteAccount(id) {
+    return this.http.delete(this.url + 'accounts/' + id);
+  }
 
   //list accounts
   fetchAccounts() {

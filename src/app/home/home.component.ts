@@ -36,29 +36,9 @@ export class HomeComponent {
     private authService: AuthServiceService,
     private accountService: AccountService
   ) {
-    this.accountService.fetchAccounts().subscribe((accounts: any) => {
-      console.log(accounts);
-      let data = [];
-
-      for (let i = 0; i < accounts.length; i++) {
-        data.push({
-          _id: accounts[i]._id,
-          accountNumber: accounts[i].accountNo,
-          accountName: accounts[i].accountHolderName,
-          accountType: accounts[i].accountType,
-        });
-      }
-      this.dataSource = new MatTableDataSource<any>(data);
-
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-    });
+    this.refresh();
   }
 
-  // ngAfterViewInit() {
-  //   this.dataSource.paginator = this.paginator;
-  //   this.dataSource.sort = this.sort;
-  // }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -79,5 +59,32 @@ export class HomeComponent {
   toEditScrean(id) {
     this.router.navigate(['/editAccountDetail', id]);
     console.log(id);
+  }
+
+  delete(id) {
+    this.accountService.deleteAccount(id).subscribe((data) => {
+      console.log(data);
+      this.refresh();
+    });
+  }
+
+  refresh() {
+    this.accountService.fetchAccounts().subscribe((accounts: any) => {
+      console.log(accounts);
+      let data = [];
+
+      for (let i = 0; i < accounts.length; i++) {
+        data.push({
+          _id: accounts[i]._id,
+          accountNumber: accounts[i].accountNo,
+          accountName: accounts[i].accountHolderName,
+          accountType: accounts[i].accountType,
+        });
+      }
+      this.dataSource = new MatTableDataSource<any>(data);
+
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
 }

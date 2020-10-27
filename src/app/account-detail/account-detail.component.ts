@@ -80,20 +80,11 @@ export class AccountDetailComponent implements OnInit {
 
   onSubmit() {
     console.log('submitted');
-    // console.log(this.accountDetailForm.value.accoutnHolderName);
-    // console.log(this.accountDetailForm.value.address);
-    // console.log(this.accountDetailForm.value.dob);
-    // console.log(this.accountNumber);
-    // console.log(this.accountDetailForm.value.age);
-    // console.log(this.accountDetailForm.value.gender);
-    // console.log(this.accountDetailForm.value.phoneNumber);
-    // console.log(this.accountDetailForm.value.contactEmail);
-    // console.log(this.accountDetailForm.value.accountType);
     this.accountDetails = {
       accountHolderName: this.accountDetailForm.value.accoutnHolderName,
       address: this.accountDetailForm.value.address,
       dateOfBirth: this.accountDetailForm.value.dob,
-      accountNo: this.accountNumber,
+      accountNo: this.accountDetailForm.value.accountNumber,
       age: this.accountDetailForm.value.age,
       sex: this.accountDetailForm.value.gender,
       contactNo: this.accountDetailForm.value.phoneNumber,
@@ -115,7 +106,7 @@ export class AccountDetailComponent implements OnInit {
         });
     }
 
-    // this.router.navigate(['/home']);
+    this.router.navigate(['/home']);
   }
 
   generateAccountNumber() {

@@ -71,7 +71,9 @@
             >
           </button>
           <button value="Delete" class="btn btn-danger">
-            <mat-icon aria-label="Delete">delete</mat-icon>
+            <mat-icon aria-label="Delete" (click)="delete(row._id)"
+              >delete</mat-icon
+            >
           </button>
         </td>
       </ng-container>

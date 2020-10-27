@@ -1,0 +1,57 @@
+<div class="containerbox">
+  <div class="content">
+    <label>Login</label>
+    <form [formGroup]="loginForm" (submit)="onSubmit()">
+      <input
+        type="text"
+        name="emailId"
+        formControlName="email"
+        id="emailId"
+        class="form-control"
+        placeholder="Email ID"
+      />
+      <small
+        class="text-danger"
+        *ngIf="
+          loginForm.controls.email.hasError('required') &&
+          (loginForm.controls.email.dirty || loginForm.controls.email.touched)
+        "
+        >Email Id is Required</small
+      >
+      <br />
+      <input
+        type="password"
+        name="password"
+        formControlName="password"
+        id="password"
+        class="form-control"
+        placeholder="Password"
+      />
+      <small
+        class="text-danger"
+        *ngIf="
+          loginForm.controls.password.hasError('required') &&
+          (loginForm.controls.password.dirty ||
+            loginForm.controls.password.touched)
+        "
+        >Email Id is Required</small
+      >
+      <br />
+      <button
+        [disabled]="loginForm.invalid"
+        type="submit"
+        class="btn btn-primary mb-2 form-control"
+      >
+        Login
+      </button>
+      <br />
+    </form>
+    <input
+      (click)="goToRegister()"
+      type="button"
+      value="New User, Register"
+      class="btn btn-primary mb-2 form-control"
+    />
+    <br />
+  </div>
+</div>

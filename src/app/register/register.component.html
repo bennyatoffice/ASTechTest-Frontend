@@ -1,0 +1,141 @@
+<div class="containerbox">
+  <div class="content">
+    <label>Register</label>
+    <form [formGroup]="registerForm" (submit)="onSubmit()">
+      <input
+        type="text"
+        name="userName"
+        formControlName="userName"
+        id="userName"
+        class="form-control"
+        placeholder="User Name"
+      />
+      <small
+        class="text-danger"
+        *ngIf="
+          registerForm.controls.userName.hasError('required') &&
+          (registerForm.controls.userName.dirty ||
+            registerForm.controls.userName.touched)
+        "
+        >User Name is Required</small
+      >
+      <br />
+      <input
+        type="text"
+        name="loginName"
+        formControlName="loginName"
+        id="loginName"
+        class="form-control"
+        placeholder="Login Name"
+      />
+      <small
+        class="text-danger"
+        *ngIf="
+          registerForm.controls.loginName.hasError('required') &&
+          (registerForm.controls.loginName.dirty ||
+            registerForm.controls.loginName.touched)
+        "
+        >Login Name is Required</small
+      >
+      <br />
+      <input
+        type="text"
+        name="emailId"
+        formControlName="emailId"
+        id="emailId"
+        class="form-control"
+        placeholder="Email Id"
+      />
+      <small
+        class="text-danger"
+        *ngIf="
+          registerForm.controls.emailId.hasError('required') &&
+          (registerForm.controls.emailId.dirty ||
+            registerForm.controls.emailId.touched)
+        "
+        >Email ID is Required</small
+      >
+      <small
+        class="text-danger"
+        *ngIf="
+          registerForm.controls.emailId.hasError('email') &&
+          (registerForm.controls.emailId.dirty ||
+            registerForm.controls.emailId.touched)
+        "
+        >Email ID should be valid</small
+      >
+      <br />
+      <input
+        type="password"
+        name="password"
+        formControlName="password"
+        id="password"
+        class="form-control"
+        placeholder="Password"
+      />
+      <small
+        class="text-danger"
+        *ngIf="
+          registerForm.controls.password.hasError('required') &&
+          (registerForm.controls.password.dirty ||
+            registerForm.controls.password.touched)
+        "
+        >Password is Required</small
+      >
+      <small
+        class="text-danger"
+        *ngIf="
+          registerForm.controls.password.hasError('pattern') &&
+          (registerForm.controls.password.dirty ||
+            registerForm.controls.password.touched)
+        "
+        >Must have minimun one number,<br />
+        one uppercase, also should be <br />
+        8 character long</small
+      >
+      <br />
+      <input
+        type="password"
+        name="conPassword"
+        formControlName="confirmPassword"
+        id="conPassword"
+        class="form-control"
+        placeholder="Confirm Password"
+      />
+      <small
+        class="text-danger"
+        *ngIf="
+          registerForm.controls.confirmPassword.hasError('required') &&
+          (registerForm.controls.confirmPassword.dirty ||
+            registerForm.controls.confirmPassword.touched)
+        "
+        >Confirm Password is Required</small
+      >
+      <small
+        class="text-danger"
+        *ngIf="
+          registerForm.hasError('passwordNotMatch') &&
+          (registerForm.controls.confirmPassword.dirty ||
+            registerForm.controls.confirmPassword.touched)
+        "
+        >Passwords must match</small
+      >
+      <br />
+      <button
+        [disabled]="registerForm.invalid"
+        type="submit"
+        class="btn btn-primary mb-2 form-control"
+      >
+        Register
+      </button>
+
+      <br />
+      <input
+        (click)="goToLogin()"
+        type="button"
+        value="Registered User, Login"
+        class="btn btn-primary mb-2 form-control"
+      />
+    </form>
+  </div>
+</div>

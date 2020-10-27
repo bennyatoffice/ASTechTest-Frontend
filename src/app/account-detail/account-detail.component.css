@@ -1,0 +1,17 @@
+.box {
+  margin-top: 20px;
+}
+.smallerText {
+  font-size: smaller;
+}
+
+.redText {
+  color: red;
+}
+
+.linking {
+  text-decoration: underline;
+  color: royalblue;
+  cursor: pointer;
+  font-size: smaller;
+}

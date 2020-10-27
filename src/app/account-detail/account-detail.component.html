@@ -1,0 +1,277 @@
+<div class="col-md-6">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box">
+        <label for="">New Account Details</label>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="accountDetailForm" (submit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-12">
+            <label for="" class="smallerText">Account Holder Name</label
+            ><label for="" class="redText">*</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <input
+              type="text"
+              formControlName="accoutnHolderName"
+              name=""
+              placeholder="Account Holder name"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <small
+          class="text-danger"
+          *ngIf="
+            accountDetailForm.controls.accoutnHolderName.hasError('required') &&
+            (accountDetailForm.controls.accoutnHolderName.dirty ||
+              accountDetailForm.controls.accoutnHolderName.touched)
+          "
+          >User Name is Required</small
+        >
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-12">
+            <label for="" class="smallerText">Address</label
+            ><label for="" class="redText">*</label>
+          </div>
+        </div>
+        <input
+          type="text"
+          name=""
+          formControlName="address"
+          placeholder="Address"
+          class="form-control"
+        />
+        <small
+          class="text-danger"
+          *ngIf="
+            accountDetailForm.controls.address.hasError('required') &&
+            (accountDetailForm.controls.address.dirty ||
+              accountDetailForm.controls.address.touched)
+          "
+          >Address is Required</small
+        >
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-md-12">
+            <label for="" class="smallerText">DOB</label
+            ><label for="" class="redText">*</label>
+          </div>
+        </div>
+        <input
+          formControlName="dob"
+          type="date"
+          name=""
+          id=""
+          class="form-control"
+        />
+        <small
+          class="text-danger"
+          *ngIf="
+            accountDetailForm.controls.dob.hasError('required') &&
+            (accountDetailForm.controls.dob.dirty ||
+              accountDetailForm.controls.dob.touched)
+          "
+          >Date of Birth is Required</small
+        >
+      </div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-md-12">
+            <label for="" class="smallerText">Age</label>
+          </div>
+        </div>
+        <input
+          type="test"
+          name=""
+          id=""
+          formControlName="age"
+          placeholder="Age"
+          class="form-control"
+        />
+      </div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-md-12">
+            <label for="" class="smallerText">Gender</label>
+          </div>
+        </div>
+        <select
+          formControlName="gender"
+          name="gender"
+          id="gender"
+          class="form-control"
+        >
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-12">
+            <label for="" class="smallerText">Phone Number</label
+            ><label for="" class="redText">*</label>
+          </div>
+        </div>
+        <input
+          type="number"
+          name=""
+          formControlName="phoneNumber"
+          placeholder="Phone Number"
+          class="form-control"
+        />
+        <small
+          class="text-danger"
+          *ngIf="
+            accountDetailForm.controls.phoneNumber.hasError('required') &&
+            (accountDetailForm.controls.phoneNumber.dirty ||
+              accountDetailForm.controls.phoneNumber.touched)
+          "
+          >Phone Number is Required</small
+        >
+        <small
+          class="text-danger"
+          *ngIf="
+            accountDetailForm.controls.phoneNumber.hasError('pattern') &&
+            (accountDetailForm.controls.phoneNumber.dirty ||
+              accountDetailForm.controls.phoneNumber.touched)
+          "
+          >Phone Number should have min 10 Number</small
+        >
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-12">
+            <label for="" class="smallerText">Contact Email</label
+            ><label for="" class="redText">*</label>
+          </div>
+        </div>
+        <input
+          type="text"
+          name=""
+          formControlName="contactEmail"
+          placeholder="Contact Email"
+          class="form-control"
+        />
+        <small
+          class="text-danger"
+          *ngIf="
+            accountDetailForm.controls.contactEmail.hasError('required') &&
+            (accountDetailForm.controls.contactEmail.dirty ||
+              accountDetailForm.controls.contactEmail.touched)
+          "
+          >contact Email is Required</small
+        >
+        <small
+          class="text-danger"
+          *ngIf="
+            accountDetailForm.controls.contactEmail.hasError('email') &&
+            (accountDetailForm.controls.contactEmail.dirty ||
+              accountDetailForm.controls.contactEmail.touched)
+          "
+          >contact Email should be Valid</small
+        >
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-12">
+            <label for="" class="smallerText">Account Type</label
+            ><label for="" class="redText">*</label>
+          </div>
+        </div>
+        <select
+          formControlName="accountType"
+          name="accoutType"
+          id="accoutType"
+          class="form-control"
+        >
+          <option value="ca">CA</option>
+          <option value="sb">SB</option>
+          <option value="od">OD</option>
+          <option value="fd">FD</option>
+          <option value="nria">NRIA</option>
+        </select>
+        <small
+          class="text-danger"
+          *ngIf="
+            accountDetailForm.controls.accountType.hasError('required') &&
+            (accountDetailForm.controls.accountType.dirty ||
+              accountDetailForm.controls.accountType.touched)
+          "
+          >contact Email should be Valid</small
+        >
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-3">
+            <label for="" class="smallerText">Account Number</label
+            ><label for="" class="redText">*</label>
+          </div>
+          <div class="col-md-9">
+            <div *ngIf="!edit">
+              <label for="" class="linking" (click)="generateAccountNumber()"
+                >Generate Account Number</label
+              >
+            </div>
+          </div>
+        </div>
+        <input
+          type="text"
+          name=""
+          formControlName="accountNumber"
+          placeholder="Account Number"
+          class="form-control"
+        />
+        <small
+          class="text-danger"
+          *ngIf="
+            accountDetailForm.controls.accountType.hasError('required') &&
+            (accountDetailForm.controls.accountType.dirty ||
+              accountDetailForm.controls.accountType.touched)
+          "
+          >contact Email should be Valid</small
+        >
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-md-12">
+        <!-- <input type="button" value="Add" class="btn btn-primary" /> -->
+        <button
+          [disabled]="accountDetailForm.invalid"
+          type="submit"
+          class="btn btn-primary"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
